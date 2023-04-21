@@ -1,5 +1,5 @@
 export declare class AppService {
-    private readonly langChain;
+    private langChain;
     constructor();
-    translate(input: string): Promise<string>;
+    getOpenAIAnswer(input: string): Promise<string>;
 }

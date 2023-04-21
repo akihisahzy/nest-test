@@ -6,10 +6,10 @@ export class AppController {
   constructor(private readonly appService: AppService) { }
 
   @Get()
-  async getHello(): Promise<string> {
-    const translated = await this.appService.translate(
-      '中国有多少个省？'
+  async getAsk(): Promise<string> {
+    const translated = await this.appService.getOpenAIAnswer(
+      '中国有多少人口？'
     );
-    return `Translated: ${translated}`;
+    return `回答: ${translated}`;
   }
 }

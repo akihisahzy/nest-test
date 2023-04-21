@@ -16,9 +16,9 @@ let AppController = class AppController {
     constructor(appService) {
         this.appService = appService;
     }
-    async getHello() {
-        const translated = await this.appService.translate('中国有多少个省？');
-        return `Translated: ${translated}`;
+    async getAsk() {
+        const translated = await this.appService.getOpenAIAnswer('中国有多少人口？');
+        return `回答: ${translated}`;
     }
 };
 __decorate([
@@ -26,7 +26,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
-], AppController.prototype, "getHello", null);
+], AppController.prototype, "getAsk", null);
 AppController = __decorate([
     (0, common_1.Controller)(),
     __metadata("design:paramtypes", [app_service_1.AppService])

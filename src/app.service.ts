@@ -7,23 +7,16 @@ dotenv.config()
 
 @Injectable()
 export class AppService {
-  private readonly langChain: any;
+  private langChain: any;
 
   constructor() {
     const llm = new OpenAI({
-      modelName: 'gpt-3.5-turbo',
+      modelName: process.env.MODEL_NAME,
       openAIApiKey: process.env.OPENAI_API_KEY,
       temperature: 0.9
     }, {
       baseOptions: {
-        // proxy: { prototal: 'http', host: '192.168.3.77', port: '7890' },
-        // proxy: { prototal: 'http', host: '192.168.3.176', port: '7890' },
-        // proxy: { prototal: 'http', host: '127.0.0.1', port: '7890' },
-        proxy: {
-          prototal: 'http',
-          host: '192.168.3.38',
-          port: '7890'
-        },
+        proxy: { prototal: 'http', host: '192.168.3.176', port: '7890' },
         adapter: null
       }
     })
@@ -31,10 +24,10 @@ export class AppService {
     this.langChain = new ConversationChain({ llm, memory });
   }
 
-  async translate(input: string): Promise<string> {
+  async getOpenAIAnswer(input: string): Promise<string> {
     console.log('q:', input)
     const res = await this.langChain.call({ input });
-    console.log(res)
-    return res;
+    console.log('a:', res.response)
+    return res.response;
   }
 }
