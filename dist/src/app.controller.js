@@ -17,7 +17,7 @@ let AppController = class AppController {
         this.appService = appService;
     }
     async getHello() {
-        const translated = await this.appService.translate('Hello, world!', 'English', 'French');
+        const translated = await this.appService.translate('中国有多少个省？');
         return `Translated: ${translated}`;
     }
 };

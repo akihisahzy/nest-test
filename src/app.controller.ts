@@ -8,9 +8,7 @@ export class AppController {
   @Get()
   async getHello(): Promise<string> {
     const translated = await this.appService.translate(
-      'Hello, world!',
-      'English',
-      'French',
+      '中国有多少个省？'
     );
     return `Translated: ${translated}`;
   }

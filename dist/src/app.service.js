@@ -11,7 +11,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppService = void 0;
 const common_1 = require("@nestjs/common");
-const prompts_1 = require("langchain/prompts");
 const openai_1 = require("langchain/llms/openai");
 const chains_1 = require("langchain/chains");
 const memory_1 = require("langchain/memory");
@@ -19,27 +18,23 @@ const dotenv = require("dotenv");
 dotenv.config();
 let AppService = class AppService {
     constructor() {
-        const template = "What is a good name for a company that makes {product}?";
-        const prompt = new prompts_1.PromptTemplate({
-            template: template,
-            inputVariables: ["product"],
-        });
         const llm = new openai_1.OpenAI({
             modelName: 'gpt-3.5-turbo',
             openAIApiKey: process.env.OPENAI_API_KEY,
             temperature: 0.9
         }, {
             baseOptions: {
-                proxy: { prototal: 'http', host: '192.168.3.77', port: '7890' },
-                adapter: null
+                proxy: { prototal: 'http', host: '192.168.3.176', port: '7890' },
             }
         });
         const memory = new memory_1.BufferMemory();
         this.langChain = new chains_1.ConversationChain({ llm, memory });
     }
-    async translate(text, from, to) {
-        const resA = await this.langChain.call({ input: "colorful socks" });
-        return resA;
+    async translate(input) {
+        console.log('q:', input);
+        const res = await this.langChain.call({ input });
+        console.log(res);
+        return res;
     }
 };
 AppService = __decorate([
