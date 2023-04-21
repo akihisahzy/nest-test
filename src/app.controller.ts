@@ -5,7 +5,7 @@ import { AppService } from './app.service';
 export class AppController {
   constructor(private readonly appService: AppService) { }
 
-  @Get('openai/chat')
+  @Get('api/chat')
   async getAsk(): Promise<string> {
     const translated = await this.appService.getOpenAIAnswer(
       '中国有多少人口？'
