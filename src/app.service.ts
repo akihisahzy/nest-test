@@ -16,7 +16,7 @@ export class AppService {
       temperature: 0.9
     }, {
       baseOptions: {
-        proxy: { prototal: 'http', host: '192.168.3.176', port: '7890' },
+        proxy: { prototal: 'http', host: '192.168.3.177', port: '7890' },
         adapter: null
       }
     })
