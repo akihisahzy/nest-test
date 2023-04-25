@@ -12,4 +12,11 @@ export class AppController {
     );
     return res;
   }
+  @Get()
+  async getAsk(): Promise<string> {
+    const res = await this.appService.getOpenAIAnswer(
+      '4090显卡的中国区价格'
+    );
+    return res;
+  }
 }
