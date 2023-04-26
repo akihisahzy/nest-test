@@ -15,8 +15,8 @@ export class AppController {
   @Get()
   async getAsk(): Promise<string> {
     const res = await this.appService.getOpenAIAnswer(
-      '4090显卡的中国区价格'
+      '下午犯困怎么办？'
     );
     return res;
   }
-}
+}                                                                                                                                                                                                                                                                                                

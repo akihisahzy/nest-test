@@ -25,7 +25,7 @@
     "@nestjs/core": "^9.0.0",
     "@nestjs/platform-express": "^9.0.0",
     "dotenv": "^16.0.3",
-    "langchain": "^0.0.59",
+    "langchain": "^0.0.64",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.2.0",
     "webpack": "^5.79.0"
